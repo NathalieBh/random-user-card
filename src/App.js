@@ -1,8 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
+import Users from './pages/Users';
+import NewUsers from './pages/NewUsers';
 
-function App() {
-  return <h1> user card </h1>
-}
+const App = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <Users />
+        </Route>
+        <Route path="/users/new" exact>
+          <NewUsers />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
+    </Router>
+  );
+};
 
 export default App;
