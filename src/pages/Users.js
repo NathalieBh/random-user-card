@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import UsersList from '../components/UsersList';
 import axios from 'axios';
+
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -17,17 +19,20 @@ const Users = () => {
             picture: user.picture.medium,
           };
           usersData.push(userData);
+          setIsLoading(false);
         }
         setUsers(usersData);
       } catch (error) {
         console.error(error);
+        setIsLoading(false);
       }
     };
-
     fetchUsers();
   }, []);
 
-  return <UsersList items={users} />;
+  return (
+    <di> {isLoading ? <p>isLoading ...</p> : <UsersList items={users} />}</di>
+  );
 };
 
 export default Users;
