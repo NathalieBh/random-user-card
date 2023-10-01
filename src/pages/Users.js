@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import UsersList from '../components/UsersList';
-
+import axios from 'axios';
 const Users = () => {
-  const USERS = [
-    {
-      id: 'u1',
-      image:
-        'https://media.istockphoto.com/id/1278564529/fr/photo/verticale-de-photo-de-jolie-fille-de-sourire-mignonne-avec-les-cheveux-courts-de-brunette.jpg?s=612x612&w=0&k=20&c=On0-P0Z0oq5djJ-KsCPUuGatZ0k4iag4N1Ir8XAn-fY=',
-      name: 'lisa Bern',
-      // gender: 'female',
-      // dob: '12/12/1988',
-    },
-  ];
+  const [users, setUsers] = useState([]);
 
-  return <UsersList items={USERS} />;
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const usersData = [];
+        for (let i = 0; i < 10; i++) {
+          const res = await axios.get('https://randomuser.me/api/');
+          const user = res.data.results[0];
+          const userData = {
+            id: user.login.uuid,
+            name: `${user.name.first} ${user.name.last}`,
+            picture: user.picture.medium,
+          };
+          usersData.push(userData);
+        }
+        setUsers(usersData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  return <UsersList items={users} />;
 };
 
 export default Users;

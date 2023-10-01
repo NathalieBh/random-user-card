@@ -7,10 +7,10 @@ import Card from './UI/Card';
 const UsersItem = (props) => {
   return (
     <li className="user-item">
-      <Card className="user-item__content">
+      <div className="user-item__content">
         <Link to={`/${props.id}/details`}>
           <div className="user-item__image">
-            <Avatar image={props.image} alt={props.name} />
+            <Avatar image={props.picture} alt={props.name} />
           </div>
           <div className="user-item__info">
             <h2>{props.name}</h2>
@@ -18,7 +18,7 @@ const UsersItem = (props) => {
             {/* <h4>{props.dob}</h4> */}
           </div>
         </Link>
-      </Card>
+      </div>
     </li>
   );
 };
