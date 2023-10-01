@@ -1,22 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './UserItem.css';
 import Avatar from './UI/Avatar';
 
 const UsersItem = (props) => {
+  const syleToSend = {
+    width: '100%',
+    height: '100%',
+  };
   return (
     <li className="user-item">
-      <div className="user-item__content">
-        <Link to={`/${props.id}/details`}>
+      <div>
+        <span>
           <div className="user-item__image">
-            <Avatar image={props.picture} alt={props.name} />
+            <Avatar
+              picture={props.picture}
+              alt={props.name}
+              className="img"
+              syle={syleToSend}
+            />
           </div>
           <div className="user-item__info">
             <h2>{props.name}</h2>
-            {/* <h3>{props.gender}</h3> */}
-            {/* <h4>{props.dob}</h4> */}
           </div>
-        </Link>
+          <button
+            onClick={() => props.onRemove(props.id)}
+            style={{ backgroundColor: 'red', cursor: 'pointer' }}
+          >
+            X
+          </button>
+        </span>
       </div>
     </li>
   );

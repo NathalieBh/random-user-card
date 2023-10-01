@@ -6,17 +6,9 @@ import './NavLinks.css';
 const NavLinks = (props) => {
   return (
     <ul className="nav-links">
-      <li>
-        <NavLink to="/" exact>
-          All users
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/users/add"> Add users</NavLink>
-      </li>
-      <li>
-        <NavLink to="/users/order"> Order by dob </NavLink>
-      </li>
+      <li>All users</li>
+      <li>Add users</li>
+      <li>Order by dob</li>
     </ul>
   );
 };

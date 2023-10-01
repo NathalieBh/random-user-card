@@ -1,12 +1,13 @@
 .user-item {
   margin: 1rem;
-  width: calc(60% - 2rem);
-  min-width: 15rem;
+  /* width: calc(60% - 2rem);
+  min-width: 15rem; */
+  width: 14rem;
   border-radius: 6px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
-.user-item a {
+.user-item span {
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -17,9 +18,13 @@
   color: white;
   background: #2e474e;
 }
+.user-item span > button {
+  background-color: 'red';
+  cursor: 'pointer';
+}
 
-.user-item a:hover,
-.user-item a:active {
+.user-item span:hover,
+.user-item span:active {
   background: #3b59b3;
 }
 
