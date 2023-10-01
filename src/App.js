@@ -4,21 +4,26 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
+
+import MainNavigation from './components/Navigation/MainNavigation';
 import Users from './pages/Users';
-import NewUsers from './pages/NewUsers';
+import AddUsers from './pages/AddUsers';
 
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact>
-          <Users />
-        </Route>
-        <Route path="/users/new" exact>
-          <NewUsers />
-        </Route>
-        <Redirect to="/" />
-      </Switch>
+      <MainNavigation />
+      <main>
+        <Switch>
+          <Route path="/" exact>
+            <Users />
+          </Route>
+          <Route path="/users/add" exact>
+            <AddUsers />
+          </Route>
+          <Redirect to="/" />
+        </Switch>
+      </main>
     </Router>
   );
 };
