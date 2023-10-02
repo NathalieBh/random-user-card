@@ -16,19 +16,23 @@ const UsersList = (props) => {
   }
   return (
     <div>
-      <ul className="users-list">
-        {props.items.map((user) => {
-          return (
-            <UserItem
-              key={user.id}
-              id={user.id}
-              picture={user.picture}
-              name={user.name}
-              onRemove={props.onRemove}
-            />
-          );
-        })}
-      </ul>
+      <div>
+        <ul className="users-list">
+          {props.items.map((user) => {
+            return (
+              <UserItem
+                key={user.id}
+                id={user.id}
+                picture={user.picture}
+                name={user.name}
+                age={user.dob.age}
+                onRemove={props.onRemove}
+                onSelectUser={props.onSelectUser}
+              />
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };
