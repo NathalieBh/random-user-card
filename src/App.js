@@ -1,21 +1,14 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { Fragment } from 'react';
 
-import MainNavigation from './components/Navigation/MainNavigation';
-import Users from './pages/Users';
+import Users from './components/Users';
+import MainHeader from './components/Navigation/MainHeader';
 
 const App = () => {
   return (
-    <Router>
-      <MainNavigation />
-      <main>
-        <Switch>
-          <Route path="/" exact>
-            <Users />
-          </Route>
-        </Switch>
-      </main>
-    </Router>
+    <Fragment>
+      <MainHeader />
+      <Users />
+    </Fragment>
   );
 };
-
 export default App;

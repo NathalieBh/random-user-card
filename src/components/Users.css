@@ -1,0 +1,64 @@
+.loader {
+  height: 100px;
+  width: 100px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotation 1s infinite linear;
+}
+.loader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #8a2b06;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  animation: dot-rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes dot-rotation {
+  from {
+    transform: translateX(-50%) translateY(-100px) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) translateY(-100px) rotate(360deg);
+  }
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  gap: 20px;
+}
+
+.action-buttons button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #8a2b06;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.action-buttons button:hover,
+.action-buttons button:active {
+  background-color: #5a1a01;
+}
