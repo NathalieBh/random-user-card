@@ -11,26 +11,32 @@ const Users = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState();
 
-  useEffect(() => {
+  const fetchUsersData = (userNumber) => {
     setIsLoading(true);
-    axios.get('https://randomuser.me/api/?results=50').then((usersData) => {
-      const formattedUserData = usersData.data.results.map((user) => {
-        return {
-          id: user.login.uuid,
-          name: `${user.name.first} ${user.name.last}`,
-          picture: user.picture.large,
-          dob: user.dob,
-          gender: user.gender,
-          email: user.email,
-          cell: user.cell,
-          location: user.location.city,
-          title: user.name.title,
-        };
+    axios
+      .get(`https://randomuser.me/api/?results=${userNumber}`)
+      .then((usersData) => {
+        const formattedUserData = usersData.data.results.map((user) => {
+          return {
+            id: user.login.uuid,
+            name: `${user.name.first} ${user.name.last}`,
+            picture: user.picture.large,
+            dob: user.dob,
+            gender: user.gender,
+            email: user.email,
+            cell: user.cell,
+            location: user.location.city,
+            title: user.name.title,
+          };
+        });
+        setUsers(formattedUserData);
+        setFilteredUsers(formattedUserData);
+        setIsLoading(false);
       });
-      setUsers(formattedUserData);
-      setFilteredUsers(formattedUserData);
-      setIsLoading(false);
-    });
+  };
+
+  useEffect(() => {
+    fetchUsersData(50);
   }, []);
 
   const handlerFemale = (event) => {
@@ -56,32 +62,19 @@ const Users = () => {
   const handlerDeleteUser = (id) => {
     setFilteredUsers(filteredUsers.filter((user) => user.id !== id));
     setUsers(users.filter((user) => user.id !== id));
+    setSelectedUser(null);
   };
   const handlerBackdrop = () => {
     setSelectedUser(null);
   };
 
   const addTenUsers = () => {
-    setIsLoading(true);
-    axios.get('https://randomuser.me/api/?results=10').then((usersData) => {
-      const formattedUserData = usersData.data.results.map((user) => {
-        return {
-          id: user.login.uuid,
-          name: `${user.name.first} ${user.name.last}`,
-          picture: user.picture.large,
-          dob: user.dob,
-          gender: user.gender,
-        };
-      });
-      setUsers(formattedUserData);
-      setFilteredUsers(formattedUserData);
-      setIsLoading(false);
-    });
+    fetchUsersData(10);
   };
   return (
     <div className="users-container">
       {selectedUser && (
-        <Modal>
+        <Modal onClose={handlerBackdrop}>
           <UserCard
             userDetails={selectedUser}
             onRemove={handlerDeleteUser}

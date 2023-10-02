@@ -1,9 +1,11 @@
 .user-item {
+  position: relative;
   margin: 1rem;
   width: 14rem;
   border-radius: 6px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 .user-item:hover {
@@ -29,6 +31,7 @@
 
 .user-item__content {
   padding: 0;
+  margin-left: 10px;
 }
 
 .user-item__image {
@@ -42,6 +45,17 @@
   margin: 0 0 0.5rem 0;
   font-weight: normal;
 }
+.box {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #8a2b06;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.box p {
+  margin: 0;
+}
 
 .user-item:hover h2 {
   color: #222;
@@ -49,4 +63,19 @@
 
 .user-item__info h3 {
   margin: 0;
+}
+
+.user-item .delete-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 2px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: #7b351a;
+}
+
+.user-item .delete-button:hover {
+  background-color: #684436;
 }

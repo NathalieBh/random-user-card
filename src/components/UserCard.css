@@ -3,12 +3,13 @@
   background-color: white;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 1rem;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  height: 30%;
+  max-height: 30%;
 }
 
 .user-avatar {
@@ -28,31 +29,69 @@
 .user-name {
   font-size: 18px;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .user-info {
   display: flex;
-  flex-direction: column;
+  margin: 2rem;
   align-items: center;
   justify-content: space-between;
   flex-grow: 1;
+
+  height: 12px;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  /* gap: 10px; */
+  width: 200px;
+  min-width: 150px;
+}
+
+.icon {
+  margin: 0 30px;
+  align-items: center;
+}
+
+.info {
+  display: none;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.icon-container:hover .info {
+  display: block;
+}
+
+.user-info > span {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 6px;
+  margin: 0.2rem;
 }
 
 .user-buttons {
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px;
+  /* margin-top: 1px; */
 }
 
 .user-buttons button {
   font: inherit;
   cursor: pointer;
+  bottom: 0;
   background-color: transparent;
   border: 1px solid #8a2b06;
   padding: 0.5rem 2rem;
   border-radius: 25px;
   margin-left: 1rem;
+  margin-top: 1rem;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 

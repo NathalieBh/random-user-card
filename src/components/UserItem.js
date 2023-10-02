@@ -1,6 +1,8 @@
 import React from 'react';
 import './UserItem.css';
 import Avatar from './UI/Avatar';
+import { Close } from '@mui/icons-material';
+import { Modal } from '@mui/material';
 
 const UsersItem = (props) => {
   const syleToSend = {
@@ -8,9 +10,9 @@ const UsersItem = (props) => {
     height: '100%',
   };
   return (
-    <li className="user-item" onClick={() => props.onSelectUser(props.id)}>
-      <div>
-        <span>
+    <li className="user-item">
+      <div className="user-item__content">
+        <div onClick={() => props.onSelectUser(props.id)}>
           <div className="user-item__image">
             <Avatar
               picture={props.picture}
@@ -21,9 +23,15 @@ const UsersItem = (props) => {
           </div>
           <div className="user-item__info">
             <h2>{props.name}</h2>
-            <p>Age : {props.age}</p>
+            <p className="box">Age : {props.age}</p>
           </div>
-        </span>
+        </div>
+        <button
+          onClick={() => props.onRemove(props.id)}
+          className="delete-button"
+        >
+          <Close style={{ color: 'white' }} />
+        </button>
       </div>
     </li>
   );
