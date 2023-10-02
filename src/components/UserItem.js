@@ -23,9 +23,6 @@ const UsersItem = (props) => {
             <h2>{props.name}</h2>
             <p>Age : {props.age}</p>
           </div>
-          <button onClick={() => props.onRemove(props.id)} className="delete">
-            x
-          </button>
         </span>
       </div>
     </li>

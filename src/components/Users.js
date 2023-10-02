@@ -43,7 +43,9 @@ const Users = () => {
   };
   const handlerSortUserByAge = (event) => {
     event.preventDefault();
-    const sortedUser = filteredUsers.sort((a, b) => a.dob.age - b.dob.age);
+    const sortedUser = filteredUsers
+      .slice()
+      .sort((a, b) => a.dob.age - b.dob.age);
     setFilteredUsers(sortedUser);
   };
 
@@ -89,7 +91,7 @@ const Users = () => {
       )}
       <div className="action-buttons">
         <button onClick={handlerFemale}>Female</button>
-        <button onClick={handlerMale}>male</button>
+        <button onClick={handlerMale}>Male</button>
         <button onClick={addTenUsers}>Add 10 users</button>
         <button onClick={handlerSortUserByAge}>Sort by Age</button>
       </div>

@@ -8,6 +8,7 @@
 
 .user-item:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .user-item span {
@@ -20,21 +21,6 @@
   color: #333;
   background: #f0f0f0;
   border-radius: 6px;
-}
-
-.delete {
-  background-color: #5a1a01;
-  cursor: pointer;
-  border: none;
-  color: white;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  transition: background-color 0.3s ease-in-out;
 }
 
 .user-item span > button:hover {
