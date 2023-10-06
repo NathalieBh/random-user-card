@@ -6,7 +6,7 @@ import {
   CalendarMonth,
   Delete,
   Close,
-  Home
+  Home,
 } from '@mui/icons-material';
 
 const UserCard = ({ userDetails, onRemove, onClose }) => {
@@ -15,7 +15,7 @@ const UserCard = ({ userDetails, onRemove, onClose }) => {
     email: false,
     address: false,
     birthdate: false,
-    localisation: false
+    localisation: false,
   });
   const handlerPhoneOnMouseLeave = () => {
     setdisplayInfo({ ...displayInfo, phone: false });
@@ -48,7 +48,7 @@ const UserCard = ({ userDetails, onRemove, onClose }) => {
     setdisplayInfo({ ...displayInfo, location: true });
   };
 
-  const formateDate = date => {
+  const formateDate = (date) => {
     const arrayOfDate = date.split('-');
     return `${arrayOfDate[1]}/${arrayOfDate[2].substr(0, 2)}/${
       arrayOfDate[0]

@@ -7,7 +7,7 @@ import './UsersList.css';
 const UsersList = (props) => {
   if (props.items.length === 0) {
     return (
-      <div className="center">
+      <div>
         <Card>
           <h2>No users selected!</h2>
         </Card>

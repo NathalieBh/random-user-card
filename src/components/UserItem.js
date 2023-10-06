@@ -2,7 +2,6 @@ import React from 'react';
 import './UserItem.css';
 import Avatar from './UI/Avatar';
 import { Close } from '@mui/icons-material';
-import { Modal } from '@mui/material';
 
 const UsersItem = (props) => {
   const syleToSend = {
